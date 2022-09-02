@@ -11,9 +11,15 @@ app.use( express.static(path.join(__dirname, '/public')));
 
 
 
-app.listen(process.env.PORT || 3000, function() {
-        console.log("Servidor corriendo");
+const PORT = process.env.PORT || 3000
+
+
+app.listen(PORT, function() {
+        console.log("Servidor corriendo", PORT)
     })
+
+
+
 
 app.get('/index.html', (req,res) => {
         res.sendFile(path.resolve(__dirname + '/views/home.html'));
